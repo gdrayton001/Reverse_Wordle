@@ -33,8 +33,6 @@ class Fact:
                 return False
             elif word.count(self.letter) > self.minCount and self.knowCount:
                 return False
-            #if self.letter not in word:
-                #return False
             return True
         else:
             if self.letter in word:
@@ -48,8 +46,6 @@ class Fact:
             return
         self.inWord = True
         self.possiblePos.remove(index)
-        if self.minCount == 0:
-            self.minCount += 1
         
     def isInPos(self, index):
         if index > 4:
@@ -58,8 +54,6 @@ class Fact:
             return
         self.defPos.append(index) 
         self.inWord = True  
-        if self.minCount == 0:
-            self.minCount += 1
         
     def notInWord(self):
         self.possiblePos.clear()
@@ -70,7 +64,6 @@ class Fact:
         self.minCount = count
         self.knowCount = True
         self.inWord = True
-        #for pos in self.possiblePos:
-            #if pos not in self.defPos:
-                #self.possiblePos.remove(pos)
-                #print("Pos: " + str(pos))
+                
+    def setCount(self, count):
+        self.minCount = count

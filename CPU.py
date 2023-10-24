@@ -59,8 +59,18 @@ def learnFrom(findings):
     for i in range(len(guess)):
         if colors[i] == "green":
             factbook[guess[i]].isInPos(i)
+            instances = 0
+            for j in range(len(guess)):
+                if guess[j] == guess[i] and (colors[j] == "green" or colors[j] == "yellow"):
+                    instances += 1
+            factbook[guess[i]].setCount(instances)
         elif colors[i] == "yellow":
             factbook[guess[i]].inWordButNotInPos(i)
+            instances = 0
+            for j in range(len(guess)):
+                if guess[j] == guess[i] and (colors[j] == "green" or colors[j] == "yellow"):
+                    instances += 1
+            factbook[guess[i]].setCount(instances)            
         else:
             instances = 0
             for j in range(len(guess)):
@@ -71,4 +81,5 @@ def learnFrom(findings):
             if instances == 0:
                 factbook[guess[i]].notInWord()
             else:
+                factbook[guess[i]].inWordButNotInPos(i)
                 factbook[guess[i]].officiateCountToBe(instances)

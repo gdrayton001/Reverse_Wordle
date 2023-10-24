@@ -1,35 +1,15 @@
-from Fact import Fact
+import string
 
-factbook = {'a':Fact('a'),
-            'b':Fact('b'),
-            'c':Fact('c'),
-            'd':Fact('d'),
-            'e':Fact('e'),
-            'f':Fact('f'),
-            'g':Fact('g'),
-            'h':Fact('h'),
-            'i':Fact('i'),
-            'j':Fact('j'),
-            'k':Fact('k'),
-            'l':Fact('l'),
-            'm':Fact('m'),
-            'n':Fact('n'),
-            'o':Fact('o'),
-            'p':Fact('p'),
-            'q':Fact('q'),
-            'r':Fact('r'),
-            's':Fact('s'),
-            't':Fact('t'),
-            'u':Fact('u'),
-            'v':Fact('v'),
-            'w':Fact('w'),
-            'x':Fact('x'),
-            'y':Fact('y'),
-            'z':Fact('z')}
+letters = list(string.ascii_lowercase)
+code = ""
 
-myList = [0,1,2,3,4,5,6,7,8,9]
+codeword = input().lower()
 
-for i in myList:
-    if i % 2 == 0:
-        myList.remove(i)
-print(myList)
+for l in codeword:
+    if letters.index(l) < 10:
+        char = str(letters.index(l))
+    else:
+        char = letters[letters.index(l) - 10]
+    code += char
+    
+print(code)

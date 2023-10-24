@@ -83,7 +83,7 @@ def play_again():
             label.grid_forget()
     CPU.clearMemory()
     guess_labels_array.clear()
-    enter_word_label.config(text="Enter Word for Me to Guess")
+    enter_word_label.config(text="Enter 5-letter word for me to guess")
     enter_word_label.grid(row=0, column=0)
     word_entry.grid(row=1, column=0)
     submit_word_button.grid(row=2, column=0)    
@@ -106,7 +106,7 @@ def submit_word():
     score_label.grid(row=0, column=0, columnspan=5)
     generate_guess_button.grid(row=1, column=0, columnspan=5)
 
-enter_word_label = Label(root, text="Enter Word for Me to Guess")
+enter_word_label = Label(root, text="Enter 5-letter word for me to guess")
 word_entry = Entry(root)
 submit_word_button = Button(root, text="Submit", command=submit_word)
 guess_labels_array = []
